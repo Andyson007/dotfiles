@@ -1,0 +1,23 @@
+profile docked_home {
+  output "eDP-1" enable position 1300,1200 scale 1.200000
+  output "Dell Inc. DELL U2410 F525M27UD0DL" enable mode 1920x1200@59.95 position 0,0 scale 1.000000
+  output "Dell Inc. DELL U2410 F525M29HC43L" enable mode 1920x1200@59.95 position 1920,0 scale 1.000000
+  exec ~/.config/kanshi/docked_home
+}
+
+profile undocked {
+  output "eDP-1" enable scale 1.200000
+  exec ~/.config/kanshi/undocked
+}
+
+profile docked_tv {
+  output "eDP-1" disable
+  output "Samsung Electric Company SAMSUNG 0x01000E00" enable scale 2.000000
+  exec ~/.config/kanshi/docked_tv
+}
+
+profile docked_HDMI {
+  output "eDP-1" enable scale 1.200000
+  output "HDMI-A-1" enable scale 1.000000
+  exec ~/.config/kanshi/docked_HDMI
+}

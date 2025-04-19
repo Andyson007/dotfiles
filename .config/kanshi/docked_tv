@@ -1,0 +1,11 @@
+hyprctl --batch dispatch "\
+workspace 1,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00, on-created-empty: alacritty;\
+keyword workspace 2,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00, on-created-empty: alacritty;\
+keyword workspace 3,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00;\
+keyword workspace 4,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00;\
+keyword workspace 5,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00;\
+keyword workspace 6,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00;\
+keyword workspace 7,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00;\
+keyword workspace 8,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00;\
+keyword workspace 9,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00;\
+keyword workspace 10,monitor:desc: Samsung Electric Company SAMSUNG 0x01000E00"
