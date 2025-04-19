@@ -1,0 +1,6 @@
+[Default Applications]
+text/*=neovide.desktop
+application/toml=neovide.desktop
+application/pdf=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
