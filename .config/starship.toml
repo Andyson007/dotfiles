@@ -1,0 +1,13 @@
+format = "$all$hostname$status$character"
+
+[hostname]
+format = "[$ssh_symbol$hostname]($style)"
+ssh_only = false
+style = "dimmed blue"
+trim_at = " "
+
+[status]
+style = 'fg:red'
+format = '[\[$hex_status/$status\]]($style)'
+map_symbol = true
+disabled = false
