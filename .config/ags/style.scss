@@ -1,0 +1,202 @@
+window.MainBar {
+  background: transparent;
+  color: #dadada;
+  font-weight: bold;
+  padding: 2px;
+
+  .Clock {
+    border: 1px solid #e5c76b;
+    padding: 2px;
+    border-radius: 5px;
+
+    & .Hour,
+    .Minute {
+      font-size: 1.5em;
+      color: #e5c76b;
+    }
+
+    & .Day {
+      font-size: 1.1em;
+    }
+
+    & .Date {
+      font-size: .7em;
+    }
+
+    & .Year {
+      font-size: .75em;
+    }
+  }
+
+  button {
+    background: transparent;
+    border: transparent;
+    color: #dadada;
+    margin: 0px;
+    padding: 0px;
+  }
+
+
+
+  .bluetooth_wrapper {
+    border: 1px solid #0082fc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+
+    >button {
+      font-size: 1.4em;
+      margin: 2px;
+    }
+
+    .colored {
+      color: #0082fc;
+    }
+
+    .translate_right {
+      transform: translateX(4px);
+    }
+  }
+
+  .Logo {
+    padding: 1px;
+    border-radius: 5px;
+    border: 1px solid #6cbfbf;
+    margin-bottom: 5px;
+  }
+}
+
+.Volume_popup {
+  padding: 5px;
+  border-radius: 5px;
+
+  button {
+    background: transparent;
+    border: transparent;
+  }
+
+  .main {
+    background-color: #141b1e;
+    border: 1px solid #c47fd5;
+  }
+}
+
+.network_popup {
+  padding: 5px;
+  border-radius: 5px;
+
+  button {
+    background: transparent;
+    border: transparent;
+  }
+
+  .main {
+    background-color: #141b1e;
+    border: 1px solid #c47fd5;
+  }
+}
+.volume_wrapper {
+  border: 1px solid #c47fd5;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.volume {
+  transform: translateX(-4px);
+  color: #c47fd5;
+  margin: 0;
+  padding: 0;
+}
+
+.wifi_wrapper {
+  color: #8ccf7e;
+  border: 1px solid #8ccf7e;
+  border-radius: 5px;
+  margin-bottom: 5px;
+
+  >.translate {
+    transform: translateX(-1px);
+  }
+}
+
+highlight {
+  border-color: #c47fd5;
+  background-color: #c47fd5;
+}
+
+trough {
+  border-color: #b3b9b8;
+  background-color: #b3b9b8;
+}
+
+.datemenu-container {
+  padding: 5px;
+  border-radius: 5px;
+
+  .time {
+    font-size: 1.5rem;
+  }
+
+  .date {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  calendar {
+    border: 1px solid #e5c76b;
+    background-color: transparent;
+    border: unset;
+
+    header {
+      color: #fff;
+      padding-bottom: 0.3rem;
+      border: unset;
+    }
+
+    .day-name {
+      color: white;
+
+      // make sunday red
+      &:nth-child(1) {
+        color: #e57474;
+      }
+    }
+
+    grid>* {
+      color: #aaaaaa;
+      border-radius: 5px;
+      outline-color: #e5c76b;
+      // outline: unset;
+    }
+
+    .day-number {
+      &:selected {
+        color: #141b1e;
+        background-color: #e5c76b;
+      }
+    }
+
+    .today {
+      border-radius: 5px;
+      box-shadow: 0 0 0 0.1rem #232a2d;
+    }
+
+    .week-number {
+      color: #46a958;
+    }
+  }
+}
+
+.blue {
+  color: #67b0e8;
+}
+
+.battery_wrapper {
+  color: #8ccf7e;
+  border: 1px solid #8ccf7e;
+  border-radius: 5px;
+  margin-bottom: 5px;
+
+  >.translate {
+    transform: translateX(-1px);
+  }
+}
