@@ -1,0 +1,14 @@
+enter_accept = true
+
+keymap_mode = "vim-insert"
+
+[stats]
+
+common_prefix = ["sudo"]
+
+ignored_commands = []
+
+[keys]
+
+[sync]
+records = true
