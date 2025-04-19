@@ -1,0 +1,73 @@
+summary = false
+
+# wrap = false
+# default_job = "job:clippy"
+[export]
+enabled = true
+# path = ".bacon-locations"
+# line_format = "{kind} {path}:{line}:{column} {message}"
+
+[keybindings]
+esc = "back"
+g = "scroll-to-top"
+shift-g = "scroll-to-bottom"
+k = "scroll-lines(-1)"
+j = "scroll-lines(1)"
+ctrl-c = "quit"
+ctrl-q = "quit"
+q = "quit"
+F5 = "rerun"
+s = "toggle-summary"
+w = "toggle-wrap"
+b = "toggle-backtrace"
+Home = "scroll-to-top"
+End = "scroll-to-bottom"
+Up = "scroll-lines(-1)"
+Down = "scroll-lines(1)"
+PageUp = "scroll-pages(-1)"
+PageDown = "scroll-pages(1)"
+ctrl-u = "scroll-pages(-1)"
+ctrl-d = "scroll-pages(1)"
+Space = "scroll-pages(1)"
+a = "job:noboilerplate"      # Named after no boilerplate
+i = "job:initial"
+u = "job:unwrap"
+c = "job:clippy"
+d = "job:doc-open"
+t = "job:test"
+r = "job:run"
+
+[jobs.clippy]
+command = ["cargo", "clippy", "--color", "always"]
+
+[jobs.noboilerplate]
+command = [
+  "cargo",
+  "clippy",
+  "--color",
+  "always",
+  "--",
+  "-W",
+  "clippy::pedantic",
+  "-W",
+  "clippy::nursery",
+  "-W",
+  "missing_docs",
+  "-W",
+  "clippy::undocumented_unsafe_blocks",
+  "-A",
+  "clippy::significant_drop_tightening",
+]
+
+[jobs.unwrap]
+command = [
+  "cargo",
+  "clippy",
+  "--color",
+  "always",
+  "--",
+  "-A",
+  "all",
+  "-W",
+  "clippy::unwrap_used",
+]
