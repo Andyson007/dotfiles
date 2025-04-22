@@ -94,6 +94,7 @@ window.MainBar {
     border: 1px solid #c47fd5;
   }
 }
+
 .volume_wrapper {
   border: 1px solid #c47fd5;
   border-radius: 5px;
@@ -199,4 +200,68 @@ trough {
   >.translate {
     transform: translateX(-1px);
   }
+}
+
+/* .clock-container {
+  margin: 5px;
+  color: #e5c76b;
+
+  .unit {
+    padding: 50px;
+
+    >* {
+      margin: 0 0.7rem;
+    }
+  }
+
+  >box {
+    background-color: black;
+    border-radius: 15px;
+    box-shadow:
+      0 0 0 5px black, 5px 5px 5px;
+
+    .box-label {
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+  }
+
+  background-color: black;
+
+  label {
+    font-size: 3rem;
+    background-color: black;
+    color: black;
+    font-family: "Google Sans Display";
+    font-weight: 700;
+  }
+} */
+
+window.clock {
+  background-color: transparent;
+}
+
+.clock-container {
+  background-color: transparent;
+
+  >box {
+    box-shadow: 5px 5px #439b9b;
+    border-radius: 15px;
+    border: 1px solid #439b9b;
+    background-color: black;
+
+    .box-label {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #6cbfbf;
+    }
+
+    label {
+      font-size: 2rem;
+      padding: 5px;
+      color: #6cbfbf;
+      font-weight: 700;
+    }
+  }
+  margin: 5px;
 }

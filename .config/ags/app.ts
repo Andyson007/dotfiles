@@ -6,6 +6,7 @@ import QsPopup from "./widget/QuickSettings"
 import DatePopup from "./widget/DatePicker"
 import MusicPopup from "./widget/MusicPopup"
 import NetworkPopup from "./widget/network_popup"
+import DesktopClock from "./widget/Clock"
 
 const applications = [
   MainBar,
@@ -13,7 +14,8 @@ const applications = [
   QsPopup,
   DatePopup,
   MusicPopup,
-  NetworkPopup
+  NetworkPopup,
+  DesktopClock,
 ]
 
 App.start({
