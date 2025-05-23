@@ -35,17 +35,18 @@ fi
 
 
 # Aliases
-alias -- 'a'='lsd -AFlg'
-alias -- 'l'='lsd -Flg'
+alias -- 'a'='eza -AMl --git'
+alias -- 'l'='eza -Ml --git'
 alias -- 'lg'='lazygit'
 alias -- 'cp'='cp -v'
 alias -- 'mv'='mv -v'
 alias -- 'c'='ping yr.no'
-alias start="Hyprland;logout"
+alias start="cd;Hyprland;logout"
 alias aoeu="vimm" &&
 
 alias tmp="cd \`mktemp -d\`"
 alias weather="curl wttr.in"
+alias dot="cd ~/.dotfiles/"
 
 # Functions
 function vim() {
