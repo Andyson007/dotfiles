@@ -1,0 +1,4 @@
+defaults:
+  terminal_font_size: 16
+speaker_notes:
+  always_publish: true
