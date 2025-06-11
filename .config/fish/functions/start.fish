@@ -1,5 +1,5 @@
 function start --description "starts Hyprland"
   cd ~
   Hyprland
-  logout
+  exit
 end
