@@ -12,20 +12,19 @@ set $mod Mod4
 set $term kitty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $uifont "Ubuntu 14"
+set $uifont "JetBrains Mono Nerd Font"
 set $highlight #3daee9
 set $prompt #18b218
-# set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
 set $menu tofi-run --drun-launch=true | sh
-set $wallpaper ~/pictures/
-set $lock swaylock -f -i $wallpaper -s fill
+set $wallpaper ~/pictures/wallpapers/deer.jpg
+set $lock ~/.config/sway/lock.sh
 ### Needed for xdg-desktop-portal-kde
 exec dbus-update-activation-environment --systemd --all
 exec /usr/lib/xdg-desktop-portal --replace
 exec kdeconnect-indicator
 exec mako
-exec wl-paste --type text --watch cliphist store 
-exec wl-paste --type image --watch cliphist store 
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 
 ### Output configuration
 #
@@ -45,14 +44,14 @@ output * bg ~/pictures/wallpapers/deer.jpg fill
 # Example configuration:
 
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 '$lock' \
          timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep '$lock'
 
 input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_layout us(dvp)
-    xkb_options compose:102,numpad:shift3,kpdl:semi,keypad:hex,caps:super,grp:shifts_toggle
+    xkb_options compose:102,numpad:shift3,kpdl:semi,keypad:hex,caps:super
 }
 
 ### Key bindings
@@ -63,7 +62,14 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     bindsym $mod+d kill
     bindsym $mod+r exec $menu
 
+bindsym $mod+SHIFT+MOD1+B exec bluetoothctl devices | tofi | awk '{print "bluetoothctl connect " $2}' | sh
+
     bindsym $mod+Ctrl+s exec grim -g "$(slurp)" - | wl-copy
+    bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') ~/pictures/screenshots/Screenshot_$(date +'%Y-%m-%d-%H%M%S.png')
+    bindsym Alt+Print exec grim ~/pictures/screenshots/Screenshot_$(date +'%Y-%m-%d-%H%M%S.png')
+    bindsym Control+Print exec grim -g "$(slurp)" ~/pictures/screenshots/Screenshot_$(date +'%Y-%m-%d-%H%M%S.png')
+    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
+
     bindsym $mod+Shift+P exec unipicker --command "tofi" --copy-command wl-copy
     bindsym $mod+v exec cliphist list | tofi | cliphist decode | wl-copy
 
@@ -97,20 +103,6 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     
     bindsym $mod+F12 exec shutdown now
     bindsym Mod4+Ctrl+L exec $lock
-    bindsym Control+Mod1+Delete exec ksysguard
-    bindsym $mod+F1 exec dolphin
-    bindsym $mod+F2 exec cantata
-    bindsym $mod+F3 exec mpv --player-operation-mode=pseudo-gui
-    bindsym $mod+F4 exec firefox
-    bindsym $mod+F5 exec kate
-    bindsym $mod+F6 exec lutris
-    bindsym $mod+F7 exec notify-send $(weather)
-    bindsym $mod+F8 exec pkill kmousetool || kmousetool
-    bindsym $mod+shift+F4 exec firefox --private-window
-    bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y-%m-%d-%H%M%S.png')
-    bindsym Alt+Print exec grim $(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y-%m-%d-%H%M%S.png')
-    bindsym Control+Print exec grim -g "$(slurp)" $(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y-%m-%d-%H%M%S.png')
-    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
     bindsym $mod+tab workspace back_and_forth
     
 #
@@ -130,16 +122,16 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 # Moving around:
 #
     # Move your focus around use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    bindsym Mod1+H focus left
+    bindsym Mod1+J focus down
+    bindsym Mod1+K focus up
+    bindsym Mod1+L focus right
 
     # _move_ the focused window with the same, but add Shift with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+    bindsym Mod1+Shift+H move left
+    bindsym Mod1+Shift+J move down
+    bindsym Mod1+Shift+K move up
+    bindsym Mod1+Shift+L move right
 #
 # Workspaces:
 #
@@ -170,26 +162,26 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     bindsym $mod+W workspace 37
 
     # move focused container to workspace
-    bindsym $mod+Shift+H move container to workspace 2
-    bindsym $mod+Shift+L move container to workspace 3
-    bindsym $mod+Shift+E move container to workspace 5
-    bindsym $mod+Shift+U move container to workspace 7
-    bindsym $mod+Shift+T move container to workspace 11
-    bindsym $mod+Shift+M move container to workspace 13
-    bindsym $mod+Shift+B move container to workspace 17
-    bindsym $mod+Shift+N move container to workspace 19
-    bindsym $mod+Shift+S move container to workspace 23
-    bindsym $mod+Shift+G move container to workspace 29
-    bindsym $mod+Shift+K move container to workspace 31
-    bindsym $mod+Shift+W move container to workspace 37
+    bindsym $mod+Shift+H move container to workspace 2;  workspace number 2
+    bindsym $mod+Shift+L move container to workspace 3;  workspace number 3
+    bindsym $mod+Shift+E move container to workspace 5;  workspace number 5
+    bindsym $mod+Shift+U move container to workspace 7;  workspace number 7
+    bindsym $mod+Shift+T move container to workspace 11; workspace number 11
+    bindsym $mod+Shift+M move container to workspace 13; workspace number 13
+    bindsym $mod+Shift+B move container to workspace 17; workspace number 17
+    bindsym $mod+Shift+N move container to workspace 19; workspace number 19
+    bindsym $mod+Shift+S move container to workspace 23; workspace number 23
+    bindsym $mod+Shift+G move container to workspace 29; workspace number 29
+    bindsym $mod+Shift+K move container to workspace 31; workspace number 31
+    bindsym $mod+Shift+W move container to workspace 37; workspace number 37
 #
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    # bindsym $mod+b splith
-    # bindsym $mod+v splitv
+    bindsym $mod+slash splith
+    bindsym $mod+minus splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+semicolon layout stacking
@@ -208,11 +200,11 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     # move focus to the parent container
     bindsym $mod+a focus parent
   # Scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    # bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    # bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
