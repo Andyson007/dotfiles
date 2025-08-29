@@ -33,6 +33,7 @@ a = "job:noboilerplate"      # Named after no boilerplate
 i = "job:initial"
 u = "job:unwrap"
 c = "job:clippy"
+x = "job:check"
 d = "job:doc-open"
 t = "job:test"
 r = "job:run"
