@@ -1,2 +1,4 @@
 .config/ags/result
 .newsboat/cache.db
+.gitconfig-work
+.gitconfig-personal

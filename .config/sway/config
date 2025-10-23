@@ -8,14 +8,16 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+focus_follows_mouse always
+focus_on_window_activation focus
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $uifont "JetBrains Mono Nerd Font"
+set $uifont "0xProto Nerd Font"
 set $highlight #3daee9
 set $prompt #18b218
-set $menu tofi-run --drun-launch=true | sh
+set $menu tofi-drun | sh
 set $wallpaper ~/pictures/wallpapers/deer.jpg
 set $lock ~/.config/sway/lock.sh
 ### Needed for xdg-desktop-portal-kde
@@ -25,11 +27,12 @@ exec kdeconnect-indicator
 exec mako
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
+exec waybar
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/pictures/wallpapers/deer.jpg fill
+output * bg /usr/share/backgrounds/default-dark.jxl fill
 #
 # Example configuration:
 #
@@ -49,16 +52,16 @@ exec swayidle -w \
               resume 'swaymsg "output * dpms on"' \
          before-sleep '$lock'
 
-input "1:1:AT_Translated_Set_2_keyboard" {
+input * {
     xkb_layout us(dvp)
-    xkb_options compose:102,numpad:shift3,kpdl:semi,keypad:hex,caps:super
+    xkb_options compose:102,numpad:shift3,kpdl:semi,keypad:hex,keypad:atm,caps:super
 }
 
 ### Key bindings
 #
 # Basics:
 #
-bindsym $mod+c exec $term
+bindsym $mod+space exec $term
 bindsym $mod+d kill
 bindsym $mod+r exec $menu
 
@@ -126,53 +129,36 @@ bindsym $mod+SHIFT+MOD1+B exec bluetoothctl devices | tofi | awk '{print "blueto
     bindsym $mod+Mod1+K focus up
     bindsym $mod+Mod1+L focus right
 
-    # _move_ the focused window with the same, but add Shift with arrow keys
     bindsym $mod+Mod1+Shift+H move left
     bindsym $mod+Mod1+Shift+J move down
     bindsym $mod+Mod1+Shift+K move up
     bindsym $mod+Mod1+Shift+L move right
-#
 # Workspaces:
-#
-    # switch to workspace
-# Main terminal
-    bindsym $mod+H workspace 2
-# Secondary terminal
-    bindsym $mod+L workspace 3
-# Other
-    bindsym $mod+E workspace 5
-# Other
-    bindsym $mod+U workspace 7
-# Browser
-    bindsym $mod+T workspace 11
-# Obsidian
-    bindsym $mod+M workspace 13
-# Spotify
-    bindsym $mod+B workspace 17
-# Obsidian (neovide client)
-    bindsym $mod+N workspace 19
-# Discord
-    bindsym $mod+S workspace 23
-# git for current project
-    bindsym $mod+G workspace 29
-# Other
-    bindsym $mod+K workspace 31
-# Chromium
-    bindsym $mod+W workspace 37
+    bindsym $mod+H workspace 1:一
+    bindsym $mod+L workspace 2:二
+    bindsym $mod+E workspace 3:三
+    bindsym $mod+U workspace 4:四
+    bindsym $mod+T workspace 5:五
+    bindsym $mod+M workspace 6:六
+    bindsym $mod+B workspace 7:七
+    bindsym $mod+N workspace 8:八
+    bindsym $mod+S workspace 9:九
+    bindsym $mod+G workspace 10:十
+    bindsym $mod+K workspace 11:十一
+    bindsym $mod+W workspace 12:十二
 
-    # move focused container to workspace
-    bindsym $mod+Shift+H move container to workspace 2;  workspace number 2
-    bindsym $mod+Shift+L move container to workspace 3;  workspace number 3
-    bindsym $mod+Shift+E move container to workspace 5;  workspace number 5
-    bindsym $mod+Shift+U move container to workspace 7;  workspace number 7
-    bindsym $mod+Shift+T move container to workspace 11; workspace number 11
-    bindsym $mod+Shift+M move container to workspace 13; workspace number 13
-    bindsym $mod+Shift+B move container to workspace 17; workspace number 17
-    bindsym $mod+Shift+N move container to workspace 19; workspace number 19
-    bindsym $mod+Shift+S move container to workspace 23; workspace number 23
-    bindsym $mod+Shift+G move container to workspace 29; workspace number 29
-    bindsym $mod+Shift+K move container to workspace 31; workspace number 31
-    bindsym $mod+Shift+W move container to workspace 37; workspace number 37
+    bindsym $mod+Shift+H move container to workspace 1:一   ; workspace number 1:一
+    bindsym $mod+Shift+L move container to workspace 2:二   ; workspace number 2:二
+    bindsym $mod+Shift+E move container to workspace 3:三   ; workspace number 3:三
+    bindsym $mod+Shift+U move container to workspace 4:四   ; workspace number 4:四
+    bindsym $mod+Shift+T move container to workspace 5:五   ; workspace number 5:五
+    bindsym $mod+Shift+M move container to workspace 6:六   ; workspace number 6:六
+    bindsym $mod+Shift+B move container to workspace 7:七   ; workspace number 7:七
+    bindsym $mod+Shift+N move container to workspace 8:八   ; workspace number 8:八
+    bindsym $mod+Shift+S move container to workspace 9:九   ; workspace number 9:九
+    bindsym $mod+Shift+G move container to workspace 10:十  ; workspace number 10:十
+    bindsym $mod+Shift+K move container to workspace 11:十一; workspace number 11:十一
+    bindsym $mod+Shift+W move container to workspace 12:十二; workspace number 12:十二
 #
 # Layout stuff:
 #
@@ -192,13 +178,14 @@ bindsym $mod+SHIFT+MOD1+B exec bluetoothctl devices | tofi | awk '{print "blueto
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+space floating toggle
+    # bindsym $mod+@ floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+Shift+space focus mode_toggle
 
     # move focus to the parent container
     bindsym $mod+a focus parent
+    bindsym $mod+at focus child
   # Scratchpad
     # bindsym $mod+Shift+minus move scratchpad
 
@@ -233,10 +220,11 @@ bar {
     hidden_state hide
     modifier $mod
     font $uifont
+    strip_workspace_numbers yes
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%-d.%-m.%Y. %H:%M:%S %p'; do sleep 1; done
+    status_command while date +'%-d.%-m.%Y. %H:%M:%S'; do sleep 1; done
 
     colors {
         statusline #ffffff

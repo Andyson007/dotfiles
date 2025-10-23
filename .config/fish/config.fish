@@ -8,3 +8,4 @@ if status is-interactive
     alias 'lg'=lazygit
     fish_vi_key_bindings
 end
+export EDITOR=nvim

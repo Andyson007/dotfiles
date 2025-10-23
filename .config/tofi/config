@@ -5,4 +5,4 @@ outline-width = 0
 result-spacing = 25
 font = monospace
 background-color = #000A
-terminal = alacritty
+terminal = kitty
