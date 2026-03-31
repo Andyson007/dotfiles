@@ -1,7 +1,12 @@
 [Default Applications]
-text/*=neovide.desktop
-text/html=firefox.desktop
-application/toml=neovide.desktop
-application/pdf=firefox.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
+text/*=neovim.desktop
+text/html=browser.desktop
+application/toml=neovim.desktop
+application/pdf=zathura.desktop
+x-scheme-handler/api=browser.desktop;
+x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/http=browser.desktop
+x-scheme-handler/https=browser.desktop
+x-scheme-handler/obsidian=obsidian.desktop
+x-scheme-handler/zip=neovim.desktop
+x-scheme-handler/unityhub=unityhub.desktop

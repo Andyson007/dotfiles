@@ -1,10 +1,9 @@
 [init]
   defaultBranch = "main"
-[includeIf "gitdir:~/.dotfiles/"]
-  path = .gitconfig-personal
-[includeIf "gitdir:~/projects/"]
-  path = .gitconfig-work
 
+[user]
+  name = Andy
+  email = andreas.jan.van.der.meulen@gmail.com
 [core]
   pager = delta
 
@@ -18,3 +17,7 @@
 
 [merge]
     conflictStyle = zdiff3
+[alias]
+c = "commit"
+st = "status"
+a = "add"
