@@ -6,6 +6,7 @@ if status is-interactive
     alias 'l'='eza -Ml --git'
     alias 'weather'='curl wttr.in'
     alias 'lg'=lazygit
+    alias 'emerge'='emerge -pv'
     fish_vi_key_bindings
 end
 export EDITOR=nvim
