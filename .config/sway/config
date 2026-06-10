@@ -8,9 +8,9 @@ font "0xProto Nerd Font 9"
 set $highlight #3daee9
 set $prompt #18b218
 set $menu tofi-drun | sh
-set $wallpaper /usr/share/backgrounds/deer.jpg
+set $wallpaper /usr/share/backgrounds/wallpaper.png
 set $lock ~/.config/sway/lock.sh
-exec dbus-update-activation-environment --systemd --all
+exec dbus-update-activation-environment --all
 exec /usr/libexec/xdg-desktop-portal --replace
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
@@ -44,7 +44,6 @@ bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+Shift+P exec unipicker --command "tofi" --copy-command wl-copy
 bindsym $mod+v exec cliphist list | tofi | cliphist decode | wl-copy
 
-
 bindsym $mod+Shift+Mod1+c reload
 
 bindsym $mod+Ctrl+w exec swaymsg exit
@@ -64,7 +63,7 @@ for_window [class="ksysguard"] sticky enable
 for_window [class="Wine"] floating enable
 for_window [app_id="lutris"] floating enable
 
-bindsym $mod+F12 exec shutdown now
+bindsym $mod+F12 exec sudo shutdown now
 bindsym Mod4+Ctrl+L exec $lock
 bindsym $mod+tab workspace back_and_forth
 
@@ -125,6 +124,7 @@ bindsym $mod+comma layout tabbed
 bindsym $mod+period layout toggle split
 
 bindsym $mod+f fullscreen
+bindsym $mod+space fullscreen
 
 bindsym $mod+backslash floating toggle
 bindsym $mod+Shift+backslash focus mode_toggle
