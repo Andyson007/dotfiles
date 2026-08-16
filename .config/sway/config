@@ -8,7 +8,7 @@ font "0xProto Nerd Font 9"
 set $highlight #3daee9
 set $prompt #18b218
 set $menu tofi-drun | sh
-set $wallpaper /usr/share/backgrounds/wallpaper.png
+set $wallpaper /usr/share/wallpapers/on-the-road.webp
 set $lock ~/.config/sway/lock.sh
 exec dbus-update-activation-environment --all
 exec /usr/libexec/xdg-desktop-portal --replace
@@ -23,7 +23,6 @@ exec swayidle -w \
          timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep '$lock'
-
 input * {
     xkb_layout us(dvp),gb
     xkb_options compose:102,numpad:shift3,kpdl:semi,keypad:hex,keypad:atm,caps:super,grp:shifts_toggle
@@ -151,6 +150,7 @@ client.urgent           #2f343a #900000 #ffffff #900000 #900000
 
 force_display_urgency_hint 500 ms
 
+mouse_warping container
 set $opacity 0.9
 for_window [class=".*"] opacity set $opacity
 for_window [app_id=".*"] opacity set &opacity
